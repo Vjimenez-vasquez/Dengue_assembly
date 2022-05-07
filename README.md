@@ -1,6 +1,12 @@
 # Dengue_assembly
 Collection of codes for Dengue virus genome assembly
 
+## Requiremnts
+ubuntu 22.04
+reference genome
+fastq files (forward and reverse)
+determination
+
 ## Usage
 ```r
 #1# indexar el genoma de referencia#
