@@ -2,10 +2,12 @@
 Collection of codes for Dengue virus genome assembly
 
 ## Requiremnts
-ubuntu 22.04
-reference genome
-fastq files (forward and reverse)
-determination
+```r
+1. ubuntu 22.04
+2. reference genome
+3. fastq files (forward and reverse)
+4. determination
+```
 
 ## Usage
 ```r
