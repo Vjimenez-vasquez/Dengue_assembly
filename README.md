@@ -1,12 +1,22 @@
 # Dengue_assembly
 Collection of codes for Dengue virus genome assembly
 
-## Requiremnts
+## Input
 ```r
 1. ubuntu 22.04
 2. reference genome
 3. fastq files (forward and reverse)
-4. determination
+```
+
+## Requiremnts
+```r
+sudo apt install sra-toolkit
+sudo apt install spades
+sudo apt install fastqc
+sudo apt install ivar
+sudo apt install samtools 
+sudo apt install fastq-pair
+aliview
 ```
 
 ## Usage
