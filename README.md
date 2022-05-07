@@ -1,3 +1,4 @@
+![Captura desde 2022-05-07 13-05-18](https://user-images.githubusercontent.com/89874227/167266465-43cf8374-3d37-40b7-b385-f7002f162144.png)
 # Dengue_assembly
 Collection of codes for Dengue virus genome assembly
 
