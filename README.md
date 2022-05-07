@@ -64,3 +64,9 @@ done
 #12# disfrutar#
 
 ```
+## Output
+```r
+1. Genomes obtained by mapping by reference (IVAR software)
+2. Aligned reads in fastq forward and reverse different files
+3. Genome scaffolds obtained by de-novo assembly (SPADES)
+```
