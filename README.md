@@ -17,6 +17,7 @@ sudo apt install fastqc
 sudo apt install ivar
 sudo apt install samtools 
 sudo apt install fastq-pair
+sudo apt install iva
 aliview
 ```
 
