@@ -20,7 +20,7 @@ sudo apt install fastq-pair
 sudo apt install iva
 aliview
 ```
-## generate script.sh file
+## Just in case generate a naked script.sh file
 ```r
 cd $HOME && touch script.sh && chmod +x script.sh ;
 cd $HOME && echo '#!/bin/bash' > script.sh && echo '# -*- ENCODING: UTF-8 -*-' >> script.sh ;
