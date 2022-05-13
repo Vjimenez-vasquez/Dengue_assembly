@@ -112,9 +112,9 @@ rm aligned_for_denovo/*aligned.fastq ;
 ```
 
 ## work on contigs
-#14# modificar los respectivos headers y alinear con la referencia# 
 ```r
-#para los contigs de IVA# 
+#14# modificar los respectivos headers y alinear con la referencia# 
+#14.1# para los contigs de IVA# 
 cd iva_genomes ;
 R 
 library(seqinr) ;
@@ -133,7 +133,7 @@ aliview allcontigsiva.fasta ;
 mafft --addfragments allcontigsiva.fasta --adjustdirection --auto --inputorder GCF_000862125.1_1.fasta > iva_alineado.fasta ;
 aliview iva_alineado.fasta ;
 
-# para los contigs de SPADES#
+#14.2# para los contigs de SPADES#
 cd spades_genomes ;
 R 
 library(seqinr) ;
