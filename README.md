@@ -110,16 +110,42 @@ mkdir spades_genomes ;
 mv *scaffolds.fasta spades_genomes ;
 rm aligned_for_denovo/*aligned.fastq ;
 
-#correr hasta aqui, lo demas falta mejorar#
+#14# modificarl los respectivos headers# 
+cd iva_genomes ;
+R 
+library(seqinr)
+r <- dir()
+head <- gsub("_.*","",r)
+a <- 0
+for (i in 1:length(head)){
+a <- read.fasta(r[i])
+names(a) <- paste0(rep(head[i],length(a)),"_",names(a))
+write.fasta(a,names(a), file.out=paste0(head[i],"_1_iva_contigs.fasta"))
+}
+quit()
+Y
+cat *_1_iva_contigs.fasta > allcontigsiva.fasta ;
+cd .. ;
+cd spades_genomes ;
+R 
+library(seqinr)
+r <- dir()
+head <- gsub("_.*","",r)
+a <- 0
+for (i in 1:length(head)){
+a <- read.fasta(r[i])
+names(a) <- paste0(rep(head[i],length(a)),"_",names(a))
+write.fasta(a,names(a), file.out=paste0(head[i],"_1_spades_scaffolds.fasta"))
+}
+quit()
+Y
+cat *_1_spades_scaffolds.fasta > allcontigsspades.fasta
+cd..
 
-#14# falta: reemplazar la palabra "NODE" por "nombredelamuestra_NODE" en genomas spades#
-#15# falta: reemplazar la palabra "contig" por "nombredelamuestra_contig" en genomas iva#
-
-#16#
-cat *_spades_scaffolds.fasta > spades_genomes.fasta ;
-cat *_iva_contigs.fasta  > iva_genomes.fasta ;
-cat spades_genomes.fasta iva_genomes.fasta > genomes.fasta ;
+#### alingnment ####
 mafft --addfragments genomes.fasta --adjustdirection --auto --inputorder GCF_000871845.1_2.fasta > alineado.fasta
+
+### exit ###
 
 #13* intentos#
 for r1 in *fq
