@@ -112,7 +112,7 @@ mv *scaffolds.fasta spades_genomes ;
 rm aligned_for_denovo/*aligned.fastq ;
 ```
 
-## work on contigs
+## Now, work on contigs
 ```r
 #14# modificar los respectivos headers y alinear con la referencia# 
 #14.1# para los contigs de IVA# 
