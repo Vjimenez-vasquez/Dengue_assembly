@@ -112,7 +112,7 @@ rm aligned_for_denovo/*aligned.fastq ;
 ```
 
 ## work on contigs
-##14# modificar los respectivos headers y alinear con la referencia# 
+#14# modificar los respectivos headers y alinear con la referencia# 
 ```r
 #para los contigs de IVA# 
 cd iva_genomes ;
@@ -153,7 +153,6 @@ mafft --addfragments allscaffolds.fasta --adjustdirection --auto --inputorder GC
 aliview spades_alineado.fasta ;
 ```
 
-```
 ## Output
 ```r
 1. Genomes obtained by mapping by reference (IVAR software)
