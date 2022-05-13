@@ -122,8 +122,7 @@ a <- read.fasta(r[i])
 names(a) <- paste0(rep(head[i],length(a)),"_",names(a))
 write.fasta(a,names(a), file.out=paste0(head[i],"_1_iva_contigs.fasta"))
 }
-quit()
-Y
+q("no")
 cat *_1_iva_contigs.fasta > allcontigsiva.fasta ;
 cd .. ;
 cd spades_genomes ;
@@ -137,8 +136,7 @@ a <- read.fasta(r[i])
 names(a) <- paste0(rep(head[i],length(a)),"_",names(a))
 write.fasta(a,names(a), file.out=paste0(head[i],"_1_spades_scaffolds.fasta"))
 }
-quit()
-Y
+q("no") ;
 cat *_1_spades_scaffolds.fasta > allcontigsspades.fasta
 cd..
 
