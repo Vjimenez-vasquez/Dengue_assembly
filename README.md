@@ -109,48 +109,48 @@ mv *iva_contigs.fasta iva_genomes ;
 mkdir spades_genomes ;
 mv *scaffolds.fasta spades_genomes ;
 rm aligned_for_denovo/*aligned.fastq ;
+```r
 
-#14# modificarl los respectivos headers# 
+##14# modificar los respectivos headers y alinear con la referencia# 
+```r
+#para los contigs de IVA# 
 cd iva_genomes ;
 R 
-library(seqinr)
-r <- dir()
-head <- gsub("_.*","",r)
-a <- 0
-for (i in 1:length(head)){
-a <- read.fasta(r[i])
-names(a) <- paste0(rep(head[i],length(a)),"_",names(a))
-write.fasta(a,names(a), file.out=paste0(head[i],"_1_iva_contigs.fasta"))
-}
-q("no")
+library(seqinr) ;
+r <- dir() ;
+head <- gsub("_L001.*","",r) ; 
+a <- 0 ;
+for (i in 1:length(head)){ ;
+a <- read.fasta(r[i]) ;
+names(a) <- paste0(rep(head[i],length(a)),"_",names(a)) ;
+write.fasta(a,names(a), file.out=paste0(head[i],"_1_iva_contigs.fasta")) ;
+} ;
+q("no") ;
+
 cat *_1_iva_contigs.fasta > allcontigsiva.fasta ;
-cd .. ;
+aliview allcontigsiva.fasta ;
+mafft --addfragments allcontigsiva.fasta --adjustdirection --auto --inputorder GCF_000862125.1_1.fasta > iva_alineado.fasta ;
+aliview iva_alineado.fasta ;
+
+# para los contigs de SPADES#
 cd spades_genomes ;
 R 
-library(seqinr)
-r <- dir()
-head <- gsub("_.*","",r)
-a <- 0
-for (i in 1:length(head)){
-a <- read.fasta(r[i])
-names(a) <- paste0(rep(head[i],length(a)),"_",names(a))
-write.fasta(a,names(a), file.out=paste0(head[i],"_1_spades_scaffolds.fasta"))
-}
+library(seqinr) ;
+r <- dir() ;
+head <- gsub("_L001.*","",r) ;
+a <- 0 ;
+for (i in 1:length(head)){ ;
+a <- read.fasta(r[i]) ;
+names(a) <- paste0(rep(head[i],length(a)),"_",names(a)) ;
+write.fasta(a,names(a), file.out=paste0(head[i],"_1_spades_scaffolds.fasta")) ;
+} ;
 q("no") ;
-cat *_1_spades_scaffolds.fasta > allcontigsspades.fasta
-cd..
 
-#### alingnment ####
-mafft --addfragments genomes.fasta --adjustdirection --auto --inputorder GCF_000871845.1_2.fasta > alineado.fasta
-
-### exit ###
-
-#13* intentos#
-for r1 in *fq
-do
-prefix=$(basename $r1 _f_aligned.fastq.paired.fq)
-sed -i 's/NODE/${prefix}_NODE/g' ${prefix}_spades_scaffolds.fasta ;
-done
+cat *_1_spades_scaffolds.fasta > allscaffolds.fasta ;
+aliview allscaffolds.fasta ;
+mafft --addfragments allscaffolds.fasta --adjustdirection --auto --inputorder GCF_000862125.1_1.fasta > spades_alineado.fasta ;
+aliview spades_alineado.fasta ;
+```
 
 ```
 ## Output
