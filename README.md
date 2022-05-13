@@ -85,7 +85,7 @@ for r1 in *fq
 do
 prefix=$(basename $r1 _f_aligned.fastq.paired.fq)
 r2=${prefix}_r_aligned.fastq.paired.fq
-spades --pe1-1 $r1 --pe1-2 $r2 --careful --cov-cutoff auto -o ${prefix}_spades ;
+spades --pe1-1 $r1 --pe1-2 $r2 --careful --cov-cutoff 100 -t 4 -m 15 -o ${prefix}_spades ;
 mv ${prefix}_spades/scaffolds.fasta ${prefix}_spades/${prefix}_spades_scaffolds.fasta ;
 mv ${prefix}_spades/${prefix}_spades_scaffolds.fasta . ;
 done ;
